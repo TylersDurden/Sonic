@@ -8,9 +8,9 @@ I really like music, so I figured trying to create a program that will
 utilize the internet to pull some static music files I like and create a 
 little on the fly music player program.
 
-#SonicFingers
+# SonicFingers
 This is the command line interface (CLI) based way of interacting with 
 the program. As of now it supports a pretty shitty shuffle method, and
 then a method for selecting songs to listen to from the available songs.
-
 ![UI](https://raw.githubusercontent.com/TylersDurden/Sonic/master/SongSearch.png)
+
