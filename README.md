@@ -15,4 +15,4 @@ then a method for selecting songs to listen to from the available songs.
 ![UI](https://raw.githubusercontent.com/TylersDurden/Sonic/master/SongSearch.png)
 
 Here's a clip showing how to use SONIC once installed.
-![HowToUse](https://youtu.be/gyjExMP_exM)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gyjExMP_exM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
