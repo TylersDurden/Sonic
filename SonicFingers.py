@@ -20,6 +20,7 @@ class SonicFingers:
         print(str(len(musicLib))+" Songs found")
         os.system('rm library.txt')
 
+    def run(self):
         if str(input(' Want to listen in Shuffle Mode? [y/n]: ')) == 'y':
             self.shuffle_player()
         if str(input(' Want to pick a song? [y/n]:')) == 'y':
@@ -96,11 +97,13 @@ def get_working_directory():
 
 
 def main():
-    if len(sys.argv)<2:
-        SonicFingers()
+    if len(sys.argv) < 2:
+        SonicFingers().run()
     else:
         if sys.argv[1] == '-f':
             SonicFingers.filereader(sys.argv[2],)
+        if sys.argv[1] == '-listen':
+            SonicFingers().song_search()
     # CLEAN UP
     # os.system('rm songs.txt')
 
