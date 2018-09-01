@@ -13,4 +13,4 @@ This is the command line interface (CLI) based way of interacting with
 the program. As of now it supports a pretty shitty shuffle method, and
 then a method for selecting songs to listen to from the available songs.
 
-![UI](https://rawgithubusercontent.com/TylersDurden/Sonic/master/SongSearch.png)
+![UI](https://raw.githubusercontent.com/TylersDurden/Sonic/master/SongSearch.png)
