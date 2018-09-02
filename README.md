@@ -14,6 +14,10 @@ the program. As of now it supports a pretty shitty shuffle method, and
 then a method for selecting songs to listen to from the available songs.
 ![UI](https://raw.githubusercontent.com/TylersDurden/Sonic/master/SongSearch.png)
 
+
+Here's a clip showing how to use SONIC once installed.
+<https://youtu.be/gyjExMP_exM>
+
 # GLWT LICENSE
  GLWT(Good Luck With That) Public License
                  Copyright (c) Everyone, except Author
@@ -40,5 +44,3 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 
 Good luck and Godspeed.
-Here's a clip showing how to use SONIC once installed.
-<https://youtu.be/gyjExMP_exM>
