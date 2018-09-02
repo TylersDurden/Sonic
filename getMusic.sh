@@ -17,4 +17,19 @@ mkdir ReVol2
 cd ReVol2
 su root $dir/revolutionary.sh
 cd ..
+
+mkdir JAM
+# Let the user add music
+echo 'Enter a path to a folder with some mp3s you want to use: '
+echo '* If Debug Mode Enter D *'
+p=read
+if $p='D' ; then
+    ls /media/root/'FLASH DRIVE'/MusicLibrary/Music >> songs.txt
+    echo '|ADMIN MODE|'
+    cat songs.txt
+else
+    ls $p >> songs.txt
+    cat songs.txt
+fi
+
 python SonicFingers.py
