@@ -2,6 +2,7 @@ import time, sys, os, array
 import numpy as np, matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
+
 class Visualizer:
     SONG = ''   # Path to the Song for visualizing
 
@@ -10,17 +11,58 @@ class Visualizer:
         AudioDataStructure = DSP(self.SONG)
 
 
-class DSP :
+class DSP:
+    playableName  = ''
 
     def __init__(self, audioFile):
-        f = open(audioFile,'r')
-        print(audioFile+" size is :"+str(f.__sizeof__()))
+        self.playableName = audioFile
+        buff = self.get_raw_bytes(audioFile)
+        nbytes = self.dump_bufferto_txt(buff)
+
+        # This part doesn't crash but takes forever
+        # self.hex_process(nbytes)
+
+    def get_raw_bytes(self,audioFile):
+        f = open(audioFile, 'r')
+        print(audioFile + " size is :" + str(f.__sizeof__()))
         buffer = []
         nbuffs = 0
-        for chunk in f.read(1024):
-            buffer.append(chunk)
-            nbuffs += 1
-        print(str(nbuffs) + " Buffers Filled")
+        try:
+            for chunk in f.read():
+                buffer.append("0x" + chunk.encode('hex'))
+                nbuffs += 1
+        except KeyboardInterrupt:
+            pass
+        print("****                     ****\n" +
+              str(nbuffs) + " Bytes Captured")
+        print str(nbuffs*16 / (44100)) + "s of data"
+        return buffer
+
+    def dump_bufferto_txt(self,buffer):
+        f = open('data.txt','w')
+        n = 0
+        bcount = 1
+        buff = []
+        nums = []
+        for byte in buffer:
+            f.write(byte+'\n')
+            n += 1
+        print str(n) + " Bytes written to data.txt"
+        return n
+
+    def hex_process(self, length):
+        hexdata = open('data.txt','r')
+        os.system('touch nums.txt')
+        lines = 0
+        for line in hexdata.readlines():
+            os.system('bashkit/hex2dec.sh '+line+' >> num.txt')
+            lines += 1
+        print(' lines of Hex translated to integers')
+        if lines == length:
+            os.system("rm data.txt")
+            return 0
+        else:
+            return 1
 
 
 def select_song(hasFolderTunes):
