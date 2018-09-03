@@ -1,23 +1,36 @@
 import time, sys, os, array
 import numpy as np, matplotlib.pyplot as plt
 import matplotlib.animation as animation
-
+import pygame
+import scipy
+import scipy.io.wavfile
 
 class Visualizer:
     SONG = ''   # Path to the Song for visualizing
 
     def __init__(self, song):
         self.SONG = song
+        pygame.init()
         AudioDataStructure = DSP(self.SONG)
+
 
 
 class DSP:
     playableName  = ''
 
     def __init__(self, audioFile):
+
         self.playableName = audioFile
         buff = self.get_raw_bytes(audioFile)
+
+        # What if I did the integer conversion RIGHT after byte conv
+        # in dump_bufferto_txt method below?
         nbytes = self.dump_bufferto_txt(buff)
+        start = time.time()
+
+        os.system('cat data.txt | while read line; do  ./hex2dec.sh $line >> sampels.txt; done; rm data.txt')
+        print "Decoded all " + str(nbytes/10000) + "KB in "\
+              + str(start - time.time())+"s"
 
         # This part doesn't crash but takes forever
         # self.hex_process(nbytes)
@@ -45,6 +58,7 @@ class DSP:
         buff = []
         nums = []
         for byte in buffer:
+
             f.write(byte+'\n')
             n += 1
         print str(n) + " Bytes written to data.txt"

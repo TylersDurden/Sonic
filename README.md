@@ -6,7 +6,9 @@ a python program.
 
 I really like music, so I figured trying to create a program that will 
 utilize the internet to pull some static music files I like and create a 
-little on the fly music player program.
+little on the fly music player program would be a pretty good challenge.
+Plus I think it will produce something I will end up using! Anyways follow 
+along if you'd like, and feel free to download the code and run it yourself. 
 
 # SonicFingers
 This is the command line interface (CLI) based way of interacting with 
